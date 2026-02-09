@@ -65,9 +65,15 @@ function M.render(bufnr)
         local icon = icons.task[state:lower()]
         local hl = hl_map[state:lower()]
         if icon then
+          local span_width = marker_end - marker_start + 1
+          local icon_width = vim.fn.strdisplaywidth(icon)
+          local padding = span_width - icon_width
+          local lpad = math.floor(padding / 2)
+          local rpad = padding - lpad
+          local text = string.rep(" ", lpad) .. icon .. string.rep(" ", rpad)
           vim.api.nvim_buf_set_extmark(bufnr, ns, row, marker_start - 1, {
             end_col = marker_end,
-            virt_text = { { " " .. icon .. " ", hl } },
+            virt_text = { { text, hl } },
             virt_text_pos = "overlay",
           })
         end
