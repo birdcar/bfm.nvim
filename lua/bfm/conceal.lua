@@ -58,7 +58,7 @@ function M.render(bufnr)
     local row = i - 1
 
     -- Conceal task markers: [x] → icon
-    local marker_start, state, marker_end = line:find("%[([%sxX><%-o!])%]")
+    local marker_start, marker_end, state = line:find("%[([%sxX><%-o!])%]")
     if marker_start then
       local prefix = line:sub(1, marker_start - 1)
       if prefix:match("^%s*[%-*+%d%.]+%s*$") then
