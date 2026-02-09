@@ -22,6 +22,26 @@ function M.setup(opts)
       require("bfm.snippets").setup()
     end
   end
+
+  M._setup_autocmds()
+end
+
+function M._setup_buffer(bufnr)
+  require("bfm.folding").setup(bufnr)
+  require("bfm.conceal").setup(bufnr)
+  require("bfm.keymaps").setup(bufnr)
+end
+
+function M._setup_autocmds()
+  local group = vim.api.nvim_create_augroup("bfm", { clear = true })
+  vim.api.nvim_create_autocmd("FileType", {
+    group = group,
+    pattern = "markdown",
+    callback = function(args)
+      M._setup_buffer(args.buf)
+    end,
+    desc = "Set up BFM features for markdown buffers",
+  })
 end
 
 function M.register_mention_source(fn)

@@ -16,6 +16,21 @@ local defaults = {
   highlights = {
     enabled = true,
   },
+  cycling = {
+    order = { " ", "x", ">", "<", "-", "o", "!" },
+  },
+  folding = {
+    enabled = true,
+  },
+  conceal = {
+    enabled = true,
+    icons = {},
+  },
+  keymaps = {
+    cycle_forward = "<leader>tt",
+    cycle_backward = "<leader>tT",
+    insert_date = "<leader>td",
+  },
 }
 
 local current = {}
