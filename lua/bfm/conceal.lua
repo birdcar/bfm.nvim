@@ -67,8 +67,7 @@ function M.render(bufnr)
         if icon then
           vim.api.nvim_buf_set_extmark(bufnr, ns, row, marker_start - 1, {
             end_col = marker_end,
-            conceal = "",
-            virt_text = { { icon .. " ", hl } },
+            virt_text = { { " " .. icon .. " ", hl } },
             virt_text_pos = "overlay",
           })
         end
