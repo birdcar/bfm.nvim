@@ -163,12 +163,12 @@ The default icons for task states and callout types:
 ```lua
 -- Task states
 {
-  [" "] = "○",   -- open
-  ["x"] = "✓",   -- done
-  [">"] = "→",   -- scheduled
-  ["<"] = "←",   -- migrated
-  ["-"] = "—",   -- irrelevant
-  ["o"] = "●",   -- event
+  [" "] = "o",   -- open
+  ["x"] = "x",   -- done
+  [">"] = ">",   -- scheduled
+  ["<"] = "<",   -- migrated
+  ["-"] = "~",   -- irrelevant
+  ["o"] = "*",   -- event
   ["!"] = "!",   -- priority
 }
 

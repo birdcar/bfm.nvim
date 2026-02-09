@@ -3,12 +3,12 @@ local ns = vim.api.nvim_create_namespace("bfm_conceal")
 
 local default_icons = {
   task = {
-    [" "] = "○",
-    ["x"] = "✓",
-    [">"] = "→",
-    ["<"] = "←",
-    ["-"] = "—",
-    ["o"] = "●",
+    [" "] = "o",
+    ["x"] = "x",
+    [">"] = ">",
+    ["<"] = "<",
+    ["-"] = "~",
+    ["o"] = "*",
     ["!"] = "!",
   },
   callout_type = {
