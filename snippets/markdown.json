@@ -1,0 +1,40 @@
+{
+  "BFM Callout": {
+    "prefix": "@callout",
+    "body": [
+      "@callout type=${1|info,warning,danger,success,note|} title=\"${2:Title}\"",
+      "${0}",
+      "@endcallout"
+    ],
+    "description": "BFM callout directive"
+  },
+  "BFM Embed": {
+    "prefix": "@embed",
+    "body": [
+      "@embed ${1:https://}",
+      "${2:Caption}",
+      "@endembed"
+    ],
+    "description": "BFM embed directive"
+  },
+  "BFM Task": {
+    "prefix": "task",
+    "body": ["- [${1| ,x,>,<,-,o,!|}] ${2:Description}"],
+    "description": "BFM task item"
+  },
+  "BFM Due": {
+    "prefix": "//due",
+    "body": ["//due:${1:$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE}"],
+    "description": "BFM due date modifier"
+  },
+  "BFM Every": {
+    "prefix": "//every",
+    "body": ["//every:${1|daily,weekly,monthly,quarterly,yearly|}"],
+    "description": "BFM recurrence modifier"
+  },
+  "BFM Cron": {
+    "prefix": "//cron",
+    "body": ["//cron:${1:0 9 * * 1}"],
+    "description": "BFM cron schedule modifier"
+  }
+}
