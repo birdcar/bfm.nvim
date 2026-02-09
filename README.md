@@ -165,11 +165,11 @@ The default icons for task states and callout types:
 {
   [" "] = "○",   -- open
   ["x"] = "✓",   -- done
-  [">"] = "⏩",  -- scheduled
-  ["<"] = "⏪",  -- migrated
-  ["-"] = "✕",   -- irrelevant
-  ["o"] = "◉",   -- event
-  ["!"] = "⚠",   -- priority
+  [">"] = "→",   -- scheduled
+  ["<"] = "←",   -- migrated
+  ["-"] = "—",   -- irrelevant
+  ["o"] = "●",   -- event
+  ["!"] = "!",   -- priority
 }
 
 -- Callout types (shown at end of line)
