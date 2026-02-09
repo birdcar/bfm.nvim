@@ -54,27 +54,30 @@ bfm.nvim provides a completion source for [blink.cmp](https://github.com/Saghen/
 
 ### Installing the tree-sitter grammar
 
-You need the BFM tree-sitter parsers registered with nvim-treesitter. Add the parser definitions to your treesitter config:
+You need the BFM tree-sitter parsers registered with nvim-treesitter. Register them via a `User TSUpdate` autocmd:
 
 ```lua
 {
   "nvim-treesitter/nvim-treesitter",
-  opts = function(_, opts)
-    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-    parser_config.bfm = {
-      install_info = {
-        url = "https://github.com/birdcar/tree-sitter-bfm",
-        files = { "src/parser.c" },
-        branch = "main",
-      },
-    }
-    parser_config.bfm_inline = {
-      install_info = {
-        url = "https://github.com/birdcar/tree-sitter-bfm",
-        files = { "src/parser.c" },
-        branch = "inline",
-      },
-    }
+  init = function()
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "TSUpdate",
+      callback = function()
+        local parsers = require("nvim-treesitter.parsers")
+        parsers.bfm = {
+          install_info = {
+            url = "https://github.com/birdcar/tree-sitter-bfm",
+            branch = "main",
+          },
+        }
+        parsers.bfm_inline = {
+          install_info = {
+            url = "https://github.com/birdcar/tree-sitter-bfm",
+            branch = "inline",
+          },
+        }
+      end,
+    })
   end,
 }
 ```
